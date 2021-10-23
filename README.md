@@ -15,7 +15,7 @@ import "github.com/enterprizesoftware/rate-counter"
 
 ``` go
 
-var counter = rate.New(50 * time.Millisecond, 5 * time.Second);
+var counter = ratecounter.New(50 * time.Millisecond, 5 * time.Second);
 
 func doTask() {
     counter.Increment()

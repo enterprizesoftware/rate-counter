@@ -1,4 +1,4 @@
-package rate
+package ratecounter
 
 import (
 	"go.uber.org/atomic"
