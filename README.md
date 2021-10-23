@@ -15,16 +15,17 @@ import "github.com/enterprizesoftware/rate-counter"
 
 ``` go
 
-var counter = ratecounter.New(50 * time.Millisecond, 5 * time.Second);
+var actions = ratecounter.New(50 * time.Millisecond, 5 * time.Second);
 
 func doTask() {
-    counter.Increment()
+    actions.Increment()
   
     // do some work
     
 }
 
-func printRate() {
-    fmt.Println(counter.ValueBy(time.Second))
+func printStats() {
+    fmt.Println(actions.Total())
+    fmt.Println(actions.RatePer(time.Second))
 }
 ```
