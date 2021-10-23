@@ -1,4 +1,4 @@
-package ratecounter
+package rate
 
 import (
 	"fmt"

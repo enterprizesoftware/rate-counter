@@ -1,5 +1,4 @@
-module github.com/enterprizesoftware/rate-counter
-
+module github.com/enterprizesoftware/rate
 go 1.17
 
 require (
