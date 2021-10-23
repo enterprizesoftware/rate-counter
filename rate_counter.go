@@ -43,15 +43,15 @@ func New(interval time.Duration, observe time.Duration) *Rate {
 	}
 }
 
-func (r *Rate) Value() float64 {
-	return float64(r.interval) * r.value()
+func (r *Rate) RatePerInterval() float64 {
+	return float64(r.interval) * r.rate()
 }
 
-func (r *Rate) ValueBy(interval time.Duration) float64 {
-	return float64(interval) * r.value()
+func (r *Rate) RatePer(interval time.Duration) float64 {
+	return float64(interval) * r.rate()
 }
 
-func (r *Rate) value() float64 {
+func (r *Rate) rate() float64 {
 	var c uint64
 	var d time.Duration
 	var num = min(len(r.samples), r.sampleCount.Load())

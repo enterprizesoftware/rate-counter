@@ -30,21 +30,21 @@ func TestRate_Increment(t *testing.T) {
 		stop = true
 	})
 	wg.Wait()
-	value := r.Value()
+	value := r.RatePerInterval()
 	fmt.Printf("rate %.2f/%v\n", value, interval)
 	assert.Greater(t, int(value), 1000)
 }
 
 func TestRate_Value(t *testing.T) {
 	interval, r := simulateRate()
-	value := r.Value()
+	value := r.RatePerInterval()
 	fmt.Printf("rate %.2f/%v\n", value, interval)
 	assert.InDelta(t, 100, value, 5)
 }
 
 func TestRate_ValueBy(t *testing.T) {
 	_, r := simulateRate()
-	value := r.ValueBy(time.Microsecond)
+	value := r.RatePer(time.Microsecond)
 	fmt.Printf("rate %.4f/%v\n", value, time.Microsecond)
 	assert.InDelta(t, 100.0/1000000.0, value, 0.001)
 }
@@ -52,7 +52,7 @@ func TestRate_ValueBy(t *testing.T) {
 func TestRate_Value_AfterNoActivity(t *testing.T) {
 	interval, r := simulateRate()
 	time.Sleep(1 * time.Second)
-	value := r.Value()
+	value := r.RatePerInterval()
 	fmt.Printf("rate %.2f/%v\n", value, interval)
 	assert.Equal(t, 0, int(value))
 }
