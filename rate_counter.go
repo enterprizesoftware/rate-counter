@@ -29,7 +29,7 @@ type sample struct {
 func New(interval time.Duration, observe time.Duration) *Rate {
 	num := uint64(math.Ceil(float64(observe) / float64(interval)))
 	samples := make([]*sample, num)
-	for i, _ := range samples {
+	for i := range samples {
 		samples[i] = &sample{}
 	}
 	return &Rate{
@@ -110,6 +110,7 @@ func (r *Rate) captureSample() {
 
 	r.lock.Unlock()
 }
+
 func min(x int, y uint64) int {
 	if uint64(x) < y {
 		return x
