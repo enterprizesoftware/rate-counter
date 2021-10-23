@@ -1,4 +1,4 @@
-module ratecounter
+module github.com/enterprizesoftware/rate-counter
 
 go 1.17
 
