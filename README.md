@@ -28,7 +28,7 @@ import "github.com/enterprizesoftware/rate-counter"
 
 ``` go
 
-var actions = ratecounter.New(50 * time.Millisecond, 5 * time.Second);
+var actions = ratecounter.New(50 * time.Millisecond, 5 * time.Second)
 
 func doTask() {
     actions.Increment()
