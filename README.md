@@ -14,7 +14,7 @@ This was designed to perform no memory allocations and run as quickly as possibl
 
 There is no background goroutine that does any calculations so this implementation is very efficient.
 
-## Instal
+## Install
 
 ``` bash
 go get github.com/enterprizesoftware/rate-counter
